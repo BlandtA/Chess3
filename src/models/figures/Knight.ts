@@ -11,8 +11,12 @@ export class Knight extends Figure{
         this.name = FigureNames.KNIGHT;
     }
     canMove(target: Cell): boolean {
-        if(!super.canMove(target))
+        if(!super.canMove(target)){
             return false
-        return true
+        }
+        const delX = Math.abs(this.cell.x - target.x)
+        const delY = Math.abs(this.cell.y - target.y)
+
+        return(delX === 1 && delY === 2) || (delX === 2 && delY === 1)
     }
 }

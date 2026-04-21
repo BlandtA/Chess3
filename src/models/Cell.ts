@@ -21,10 +21,72 @@ export class Cell{
         this.id = Math.random();
     }
 
+    IsEmpty(){
+        return this.figure === null
+    }
+
+    //Проверяем пусты ли все ячейки по текущей вертикали
+    IsEmptyVertical(target: Cell): boolean {
+
+        if(this.x !== target.x){
+            return false
+        }
+
+        const min = Math.min(this.y, target.y)
+        const max = Math.max(this.y, target.y)
+        for(let y = min + 1; y < max; y++){
+            if(!this.board.getCell(this.x, y).IsEmpty()){
+                return false
+            }
+        }
+        return true
+    }
+
+    IsEmptyHorizontal(target: Cell): boolean {
+        
+        if(this.y !== target.y){
+            return false
+        }
+
+        const min = Math.min(this.x, target.x)
+        const max = Math.max(this.x, target.x)
+        for(let x = min + 1; x < max; x++){
+            if(!this.board.getCell(x, this.y).IsEmpty()){
+                return false
+            }
+        }
+        return true
+    }
+
+    IsEmptyDiagonal(target: Cell): boolean {
+        
+        const absX = Math.abs(target.x - this.x)
+        const absY = Math.abs(target.y - this.y)
+        if(absX !== absY){
+            return false
+        }
+
+        const directionX = this.x < target.x ? 1 : -1
+        const directionY = this.y < target.y ? 1 : -1
+
+        for(let i = 1; i < absY; i++){
+            if(!this.board.getCell(this.x + directionX*i, this.y + directionY*i).IsEmpty()){
+                return false
+            }
+        }
+        return true
+    }
+
+    setFigure(figure: Figure){
+        this.figure = figure
+        this.figure.cell = this
+
+    }
+
     moveFigure(target: Cell){
         if(this.figure && this.figure?.canMove(target)){
-            this.figure.moveFigure(target)
-            target.figure = this.figure //Добавляем фигуру на клетку куда она походила
+            this.figure.moveFigureRules(target)
+            target.setFigure(this.figure) //Добавляем фигуру на клетку куда она походила
             this.figure = null //Удаляем фигуру со старой клетки
         }
     }

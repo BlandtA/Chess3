@@ -11,8 +11,9 @@ export class Pawn extends Figure{
         this.name = FigureNames.PAWN;
     }
     canMove(target: Cell): boolean {
-        if(!super.canMove(target))
+        if(!super.canMove(target)){
             return false
+        }
         return true
     }
 }

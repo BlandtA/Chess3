@@ -36,5 +36,7 @@ export class Figure{
         return true;
     }
     
-    moveFigure(target: Cell){}
+    moveFigureRules(target: Cell){
+        
+    }
 }
