@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.app{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.board{
+    width: calc(115px*8);
+    height: calc(115px*8);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cell{
+    width: 115px;
+    height: 115px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell img{
+    width: 90px;
+    height: 90px;
+    position: relative;
+}
+
+.black{
+    background-color: #a87b5a;
+}
+
+.white{
+    background-color: #ecd3ae;
+}
+
+.selected{
+    background-color: rgb(121, 73, 7);
+}
+
+.selectedForAttack{
+    background-color: green;
+}
+
+.available{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: rgb(169, 228, 169);
+}
