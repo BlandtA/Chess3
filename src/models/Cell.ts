@@ -21,10 +21,17 @@ export class Cell{
         this.id = Math.random();
     }
 
-    IsEmpty(){
+    IsEmpty(): boolean {
         return this.figure === null
     }
 
+    IsEnemy(target: Cell): boolean {
+        if(target.figure){
+            return this.figure?.color !== target.figure.color
+        }
+        return false
+    }
+    
     //Проверяем пусты ли все ячейки по текущей вертикали
     IsEmptyVertical(target: Cell): boolean {
 
@@ -85,7 +92,7 @@ export class Cell{
 
     moveFigure(target: Cell){
         if(this.figure && this.figure?.canMove(target)){
-            this.figure.moveFigureRules(target)
+            this.figure.moveFigure(target)
             target.setFigure(this.figure) //Добавляем фигуру на клетку куда она походила
             this.figure = null //Удаляем фигуру со старой клетки
         }
