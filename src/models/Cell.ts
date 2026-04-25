@@ -93,6 +93,9 @@ export class Cell{
     moveFigure(target: Cell){
         if(this.figure && this.figure?.canMove(target)){
             this.figure.moveFigure(target)
+            if(target.figure){
+                this.board.addLostFigures(target.figure)
+            }
             target.setFigure(this.figure) //Добавляем фигуру на клетку куда она походила
             this.figure = null //Удаляем фигуру со старой клетки
         }

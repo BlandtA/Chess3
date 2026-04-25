@@ -18,6 +18,9 @@ export class Figure{
     cell: Cell;
     name: FigureNames;
     id: number;
+    coordinatesNum: number| null
+    coordinatesChar: string| null
+    coordinatesZero: number| null
 
     constructor(color: Colors, cell: Cell){
         this.color = color;
@@ -25,14 +28,22 @@ export class Figure{
         this.cell.figure = this;
         this.logo = null;
         this.name = FigureNames.FIGURE;
-        this.id = Math.random()
+        this.id = Math.random();
+        this.coordinatesNum = null;
+        this.coordinatesChar = null;
+        this.coordinatesZero = null;
     }
 
     canMove(target: Cell) : boolean{
-        if(target.figure?.color === this.color)
+        if(target.figure?.color === this.color){
+           return false 
+        }
+        if(target.figure?.name === FigureNames.KING){
             return false
-        if(target.figure?.name === FigureNames.KING)
+        }
+        if(target.x == 0 || target.y == 0){
             return false
+        }
         return true;
     }
     

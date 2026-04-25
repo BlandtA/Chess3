@@ -14,6 +14,13 @@ export class King extends Figure{
         if(!super.canMove(target)){
             return false
         }
-        return true
+        if(this.cell.x < target.x+2
+           && this.cell.x > target.x-2
+           && this.cell.y < target.y+2
+           && this.cell.y > target.y-2
+        ){
+            return true
+        }
+        return false
     }
 }

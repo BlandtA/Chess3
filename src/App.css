@@ -9,34 +9,37 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family:Cambria;
 }
 
 .board{
-    width: calc(115px*8);
-    height: calc(115px*8);
+    width: calc(4.9vw*9);
+    height: calc(10vh*8);
     display: flex;
     flex-wrap: wrap;
+    margin-left: 5%;
+    margin-bottom: 9.6%;
 }
 
 .cell{
-    width: 115px;
-    height: 115px;
+    width: 4.9vw;
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .cell img{
-    width: 90px;
-    height: 90px;
+    width: 4vw;
+    height: 8vh;
     position: relative;
 }
 
-.black{
+.Черные{
     background-color: #a87b5a;
 }
 
-.white{
+.Белые{
     background-color: #ecd3ae;
 }
 
@@ -45,12 +48,59 @@
 }
 
 .selectedForAttack{
-    background-color: green;
+    background-color: rgb(127, 197, 84);
 }
 
 .available{
-    height: 30px;
-    width: 30px;
+    height: 30%;
+    width: 30%;
     border-radius: 50%;
     background-color: rgb(169, 228, 169);
+}
+
+.font{
+    font-size: 170%;
+    margin-left: 5%;
+}
+
+.lost{
+    height: 41vh;
+    padding: 5% 0 0 5%;
+    margin-left: 18%;
+    background-color: #ecd3ae;
+    font-family:Cambria;
+    font-size: 170%;
+}
+
+.coordinatesNum{
+    font-size: 150%;
+    width: 6.5%;
+}
+
+.coordinatesChar{
+    font-size: 150%;
+    height: 6.5%;
+}
+
+.coordinatesZero{
+    font-size: 150%;
+    width: 6.5%;
+    height: 6.5%;
+}
+
+.button{
+    background-color: #a87b5a;
+    font-family:Cambria;
+    font-size: 130%;
+    width: 5vw;
+    height: 5vh;
+}
+
+.restart{
+    background-color: #ecd3ae;
+    font-family:Cambria;
+    width: 7.5vw;
+    height: 15vh;
+    padding: 0.5%;
+    margin-right: 0.5%;
 }
